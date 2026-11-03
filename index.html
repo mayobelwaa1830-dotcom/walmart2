@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en" style="background-color:#F4F8FC;">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#F4F8FC">
+<title>Walmart — $750 Gift Card Reward</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700;1,800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #F4F8FC;
+    --card: #E9F0F8;
+    --blue: #0071CE;
+    --navy: #041E42;
+    --yellow: #FFC220;
+    --amber: #D99A00;
+    --ink: #14243A;
+    --muted: #5B6B80;
+    --line: #DCE6F1;
+    --green: #2E9B57;
+  }
+  html { background: var(--bg) !important; color-scheme: light only; -webkit-text-size-adjust: 100%; }
+  body {
+    background: var(--bg) !important;
+    color: var(--ink) !important;
+    font-family: 'Nunito', sans-serif;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { width: 100%; max-width: 390px; margin: 0 auto; }
+
+  /* STICKY HEADER */
+  .top {
+    position: sticky; top: 0; z-index: 30;
+    background: rgba(244,248,252,0.92);
+    -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    padding: calc(12px + env(safe-area-inset-top)) 16px 11px;
+    text-align: center;
+  }
+  .logo {
+    font-weight: 900; font-size: 19px; letter-spacing: 0.1em; padding-left: 0.1em;
+    color: var(--blue) !important; line-height: 1;
+  }
+  .est {
+    margin-top: 6px; font-size: 9px; font-weight: 700;
+    letter-spacing: 0.3em; padding-left: 0.3em; color: var(--muted) !important;
+  }
+
+  .page { padding: 0 16px 96px; }
+
+  .divider { display: flex; align-items: center; justify-content: center; gap: 10px; margin: 22px 0 18px; }
+  .divider i { display: block; width: 44px; height: 2px; background: #BFD6EE; border-radius: 2px; }
+  .divider b { display: block; width: 9px; height: 9px; background: var(--yellow); transform: rotate(45deg); }
+
+  h1 {
+    font-weight: 900; font-size: 34px; line-height: 1.02; text-align: center;
+    color: var(--blue) !important; letter-spacing: -1px;
+  }
+  h1 em { display: block; font-style: italic; font-weight: 800; color: var(--amber) !important; }
+  .sub { margin: 14px 0 16px; text-align: center; font-size: 14px; color: var(--muted) !important; line-height: 1.4; }
+  .sub strong { color: var(--ink) !important; font-weight: 900; }
+
+  /* REWARD CARD */
+  .reward {
+    position: relative; width: 100%; aspect-ratio: 1 / 0.66;
+    border-radius: 20px; padding: 18px 18px;
+    background: linear-gradient(168deg, #0A7BE0 0%, #0558A8 45%, #041E42 100%) !important;
+    box-shadow: 0 26px 50px rgba(4,30,66,0.25);
+    display: flex; flex-direction: column; justify-content: space-between;
+    margin-bottom: 16px; overflow: hidden;
+  }
+  .reward::before {
+    content: ''; position: absolute; inset: 9px; border-radius: 14px;
+    border: 1px solid rgba(255,194,32,0.35); pointer-events: none;
+  }
+  .reward-top { display: flex; justify-content: space-between; align-items: flex-start; position: relative; }
+  .reward-brand { font-weight: 900; font-size: 16px; letter-spacing: 0.12em; color: var(--yellow) !important; line-height: 1; padding-top: 3px; }
+  .reward-tag { text-align: right; font-size: 9px; font-weight: 800; letter-spacing: 0.26em; color: rgba(255,255,255,0.8) !important; line-height: 1.75; }
+  .reward-mid { margin-top: auto; padding-bottom: 2%; position: relative; }
+  .reward-label { font-size: 10px; font-weight: 800; letter-spacing: 0.3em; color: rgba(255,255,255,0.7) !important; margin-bottom: 2px; }
+  .reward-amount { font-weight: 900; color: var(--yellow) !important; line-height: 1; white-space: nowrap; display: flex; align-items: flex-start; }
+  .reward-amount .cur { font-size: clamp(20px, 6.5vw, 26px); margin-top: 0.34em; margin-right: 2px; }
+  .reward-amount .num { font-size: clamp(54px, 17vw, 68px); letter-spacing: -2px; }
+  .reward-amount .cents { font-size: clamp(20px, 6.5vw, 26px); margin-top: 0.34em; }
+  .reward-spark { align-self: flex-end; color: var(--yellow) !important; font-size: 16px; line-height: 1; position: relative; }
+
+  /* STEPS */
+  .steps { display: flex; flex-direction: column; gap: 8px; margin: 18px 0 16px; }
+  .step { background: var(--card) !important; border-radius: 16px; padding: 12px 14px; display: flex; align-items: center; gap: 12px; }
+  .step-num {
+    flex: 0 0 auto; width: 34px; height: 34px; border-radius: 50%;
+    background: var(--blue) !important; color: var(--yellow) !important;
+    font-weight: 900; font-size: 16px; display: flex; align-items: center; justify-content: center;
+  }
+  .step-text { font-size: 14px; line-height: 1.35; color: var(--ink) !important; font-weight: 600; }
+
+  /* CTA */
+  .cta {
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    width: 100%; padding: 14px 14px; border-radius: 14px;
+    text-decoration: none; font-size: 12px; font-weight: 900;
+    letter-spacing: 0.24em; text-transform: uppercase;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform .1s ease, opacity .15s ease;
+  }
+  .cta span { padding-left: 0.24em; }
+  .cta:active { transform: scale(0.985); opacity: .92; }
+  .cta.blue { background: var(--blue) !important; color: #fff !important; box-shadow: 0 14px 28px rgba(0,113,206,0.30); }
+
+  /* REVIEWS */
+  .reviews { margin-top: 34px; text-align: center; }
+  .eyebrow { font-size: 10px; font-weight: 900; letter-spacing: 0.34em; padding-left: 0.34em; color: var(--blue) !important; }
+  .reviews h2 { margin-top: 10px; font-weight: 900; font-size: 23px; line-height: 1.1; color: var(--navy) !important; }
+  .reviews h2 em { font-style: italic; color: var(--blue) !important; }
+  .rating { margin: 12px 0 16px; display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; }
+  .stars { color: #F5A800 !important; letter-spacing: 3px; }
+  .rating .stars { font-size: 17px; }
+  .rating small { font-size: 12px; color: var(--muted) !important; font-weight: 600; }
+
+  .review { text-align: left; background: var(--card) !important; border-radius: 20px; padding: 14px 15px; margin-bottom: 10px; }
+  .rv-head { display: flex; align-items: center; gap: 11px; }
+  .avatar {
+    flex: 0 0 auto; width: 38px; height: 38px; border-radius: 50%;
+    background: var(--blue) !important; color: var(--yellow) !important;
+    font-weight: 900; font-size: 17px; display: flex; align-items: center; justify-content: center;
+  }
+  .rv-name { font-size: 14px; font-weight: 800; color: var(--ink) !important; line-height: 1.2; }
+  .rv-name .ok { font-size: 11px; font-weight: 700; color: var(--green) !important; margin-left: 6px; white-space: nowrap; }
+  .rv-meta { margin-top: 2px; font-size: 11px; color: var(--muted) !important; }
+  .review .stars { display: block; margin: 10px 0 7px; font-size: 15px; }
+  .rv-text { font-size: 13px; line-height: 1.55; color: var(--ink) !important; }
+
+  /* STICKY BOTTOM CTA */
+  .dock {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 40;
+    background: var(--navy) !important;
+    padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+  }
+  .dock .cta { max-width: 358px; margin: 0 auto; background: var(--yellow) !important; color: var(--navy) !important; box-shadow: 0 8px 20px rgba(0,0,0,0.25); }
+
+  @media (prefers-color-scheme: dark) {
+    html, body { background: var(--bg) !important; color: var(--ink) !important; }
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="logo">WALMART</div>
+  <div class="est">SAVE MONEY · LIVE BETTER</div>
+</header>
+
+<div class="wrap">
+  <main class="page">
+
+    <div class="divider"><i></i><b></b><i></i></div>
+
+    <h1>Walmart <em>Gift Card</em> Reward</h1>
+    <p class="sub">Claim your <strong>$750 Walmart reward</strong></p>
+
+    <section class="reward" aria-label="Walmart digital reward">
+      <div class="reward-top">
+        <div class="reward-brand">WALMART</div>
+        <div class="reward-tag">DIGITAL<br>REWARD</div>
+      </div>
+      <div class="reward-mid">
+        <div class="reward-label">REWARD VALUE</div>
+        <div class="reward-amount"><span class="cur">$</span><span class="num">750</span><span class="cents">.00</span></div>
+      </div>
+      <div class="reward-spark">✦</div>
+    </section>
+
+    <section class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-text">Click "Claim Now"</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text">Enter your email and basic info</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text">Complete 4–5 sponsored deals</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text">Enjoy your $750 Walmart reward</div></div>
+    </section>
+
+    <a class="cta blue" href="https://linkthem.net/?offer_id=1157&aff_id=186061" target="_blank" rel="noopener"><span>Claim Now</span> →</a>
+
+    <section class="reviews">
+      <div class="eyebrow">MEMBER VOUCHES</div>
+      <h2>What <em>Members</em> Say</h2>
+      <div class="rating"><span class="stars">★★★★★</span><small>4.8 · 9,614 reviews</small></div>
+
+      <article class="review">
+        <div class="rv-head">
+          <div class="avatar">D</div>
+          <div>
+            <div class="rv-name">Denise H. <span class="ok">✓ Verified</span></div>
+            <div class="rv-meta">Houston, TX · 2 days ago</div>
+          </div>
+        </div>
+        <span class="stars">★★★★★</span>
+        <p class="rv-text">Groceries have been so expensive lately. I completed the 4–5 deals one evening, they were easy to get through. The reward came by email a couple days later and with Walmart's rollback discounts on top, it covered my whole grocery run and then some.</p>
+      </article>
+
+      <article class="review">
+        <div class="rv-head">
+          <div class="avatar">A</div>
+          <div>
+            <div class="rv-name">Andre P. <span class="ok">✓ Verified</span></div>
+            <div class="rv-meta">Memphis, TN · 3 days ago</div>
+          </div>
+        </div>
+        <span class="stars">★★★★★</span>
+        <p class="rv-text">Honestly wasn't sure about the deals at first, but they were straightforward, just sign-ups and app downloads. My reward showed up in my inbox and I used it on school supplies, household items and some discounted electronics. Saved a lot this month.</p>
+      </article>
+
+      <article class="review">
+        <div class="rv-head">
+          <div class="avatar">K</div>
+          <div>
+            <div class="rv-name">Kayla R. <span class="ok">✓ Verified</span></div>
+            <div class="rv-meta">Tampa, FL · 1 week ago</div>
+          </div>
+        </div>
+        <span class="stars">★★★★★</span>
+        <p class="rv-text">The steps were clear and the deals were easy to follow. Got my reward by email and picked up cleaning supplies, snacks and clearance items for the kids. Between the deals and the in-store discounts I saved way more than I expected.</p>
+      </article>
+    </section>
+
+  </main>
+</div>
+
+<div class="dock">
+  <a class="cta" href="https://linkthem.net/?offer_id=1157&aff_id=186061" target="_blank" rel="noopener"><span>Claim Now</span> →</a>
+</div>
+
+</body>
+</html>
